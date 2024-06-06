@@ -2,7 +2,7 @@ import torch
 from einops import rearrange
 import numpy as np
 import os
-os.environ['TRANSFORMERS_CACHE'] = '/data/farima/huggingface_hub/'
+os.environ['TRANSFORMERS_CACHE'] = 'path/to/huggingface_hub'
 from tqdm import tqdm
 import pandas as pd
 import numpy as np
@@ -147,7 +147,7 @@ def build_dataset_for_classififcation(base_dir, dataset_length):
     if args.dataset_name == 'nq':
         dir_path = f'{base_dir}/NQ'
         dir_path = os.path.join(dir_path, 'classification_dataset')
-        dataset = load_dataset("nq_open", split="train", cache_dir="/data/farima/huggingface_hub/datasets/")
+        dataset = load_dataset("nq_open", split="train")
         sampled_daataset = dataset.shuffle(seed=args.seed)
         sampled_daataset = sampled_daataset.select([i for i in range (0, dataset_length)])
         sampled_df = sampled_daataset.to_pandas()
@@ -157,7 +157,7 @@ def build_dataset_for_classififcation(base_dir, dataset_length):
     if args.dataset_name == 'trivia_qa':
         dir_path = f'{base_dir}/TriviaQA'
         dir_path = os.path.join(dir_path, 'classification_dataset')
-        dataset = load_dataset("trivia_qa", "rc", split="train", cache_dir="/data/farima/huggingface_hub/datasets/")
+        dataset = load_dataset("trivia_qa", "rc", split="train")
         dataset = dataset.select_columns(['question', 'answer'])
         sampled_daataset = dataset.shuffle(seed=args.seed)
         sampled_daataset = sampled_daataset.select([i for i in range (0, dataset_length)])
@@ -168,7 +168,7 @@ def build_dataset_for_classififcation(base_dir, dataset_length):
     if args.dataset_name == 'sciq':
         dir_path = f'{base_dir}/SciQ'
         dir_path = os.path.join(dir_path, 'classification_dataset')
-        dataset = load_dataset("sciq", split="train", cache_dir="/data/farima/huggingface_hub/datasets/")
+        dataset = load_dataset("sciq", split="train")
         sampled_daataset = dataset.shuffle(seed=args.seed)
         sampled_daataset = sampled_daataset.select([i for i in range (0, dataset_length)])
         sampled_df = sampled_daataset.to_pandas()
@@ -202,10 +202,7 @@ if __name__ == "__main__":
         tokenizer = llama.LlamaTokenizer.from_pretrained(model_name)
         tokenizer.pad_token_id = 0 if tokenizer.pad_token_id is None else tokenizer.pad_token_id
         tokenizer.bos_token_id = 1
-        if args.model_name == "llama2_chat_13B":
-            model = llama.LlamaForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, torch_dtype=torch.float16, device_map="auto")
-        else:
-            model = llama.LlamaForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, torch_dtype=torch.float32, device_map="auto")
+        model = llama.LlamaForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=True, torch_dtype=torch.float32, device_map="auto")
         # model.to(device)
 
     elif args.model_name in ['gpt2_large', 'gpt2_xl']:

@@ -66,7 +66,7 @@ directory_path = {
     'tqa_mc2' : 'TQA'
 }
 
-DATA_DIR = f"datasets_results/{directory_path[args.dataset_name]}"
+DATA_DIR = f"results/{directory_path[args.dataset_name]}"
 
 
 def calculate_accuracy_tqa(dataset):

@@ -1,5 +1,5 @@
 import os
-os.environ['HF_HOME'] = '/data/farima/huggingface_hub/'
+os.environ['HF_HOME'] = 'path/to/huggingface_hub'
 
 import pandas as pd
 import torch

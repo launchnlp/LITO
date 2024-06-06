@@ -6,7 +6,19 @@ In this the root folder of this repo, run the following commands to set things u
 conda env create -f environment.yaml
 conda activate lito
 pip install git+https://github.com/davidbau/baukit
+mkdir results
+git clone https://github.com/sylinrl/TruthfulQA.git
 ````
+
+## results Directory Structure
+There should be 4 directories inside the *results* directory one for each dataset. 
+```
+mkdir -p results/NQ
+mkdir -p results/TriviaQA
+mkdir -p results/SciQ
+mkdir -p results/TQA 
+````
+Then, in each of these dataset directories, there would be one directory per model. Models names are: llama2_chat_7B, llama2_chat_13B, vicuna_7B, gpt2_large, and gpt2_xl.    
 
 ## Collect ITI Features
 For each of the datasets, collect their corresponding ITI features for probe training. For example, to train linear probes for Llama2_Chat_7B model on the NQ dataset, run:
