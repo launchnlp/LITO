@@ -61,7 +61,7 @@ def main(data_dir = None):
         tokenizer = llama.LlamaTokenizer.from_pretrained(MODEL, token="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")
         tokenizer.pad_token_id = 0 if tokenizer.pad_token_id is None else tokenizer.pad_token_id
         tokenizer.bos_token_id = 1
-        model = llama.LlamaForCausalLM.from_pretrained(MODEL, low_cpu_mem_usage=True, torch_dtype=torch.float32, device_map="auto", token="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")
+        model = llama.LlamaForCausalLM.from_pretrained(MODEL, low_cpu_mem_usage=True, torch_dtype=torch.float32, device_map="auto")
         # model.to(device)
         get_activations_func = get_llama_activations_bau
 
