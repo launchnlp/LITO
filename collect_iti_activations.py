@@ -102,7 +102,7 @@ def main(data_dir = None):
 
 if __name__ == '__main__':
 
-    data_dir = f"datasets_results/{directory_path[args.dataset_name]}"
+    data_dir = f"results/{directory_path[args.dataset_name]}"
 
     # dataset_creation - run once / studied dataset splits are available.
     # dataset = load_triviaqa(seed=seed)
