@@ -10,6 +10,8 @@ mkdir results
 git clone https://github.com/sylinrl/TruthfulQA.git
 ````
 
+After cloning the TruthfulQA project, please replace its presents.py file located at: `TruthfulQA/truthfulqa/presents.py` with the updated [presents.py](https://github.com/launchnlp/LITO/tree/main/scripts/presets.py).
+
 ## results Directory Structure
 There should be 4 directories inside the *results* directory one for each dataset. 
 ```
