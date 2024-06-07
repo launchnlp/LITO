@@ -47,5 +47,17 @@ python classification.classifier_rnn_binary_main llama2_chat_7B --dataset_name n
 
 Please explore other hyper-parameters in each of the above scripts. 
 
+## How to Cite 
+```
+@misc{bayat2024enhanced,
+      title={Enhanced Language Model Truthfulness with Learnable Intervention and Uncertainty Expression}, 
+      author={Farima Fatahi Bayat and Xin Liu and H. V. Jagadish and Lu Wang},
+      year={2024},
+      eprint={2405.00301},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
 ## Contact
 In case of any issues or questions, please send an email to ```farimaf (at) umich (dot) edu```.
