@@ -1,5 +1,5 @@
-This repository provides the code and datasets for our paper **Enhanced Language Model Truthfulness
-with Learnable Intervention and Uncertainty Expression**. In this work we introduce LITO, a context-aware intervention method that improves truthfulness in language models by selecting the most accurate response among multiple model-generated responses or refusing to respond if none is correct.
+This repository provides the code and datasets for our paper [**Enhanced Language Model Truthfulness
+with Learnable Intervention and Uncertainty Expression**](https://arxiv.org/abs/2405.00301). In this work, we introduce LITO, a context-aware intervention method that improves truthfulness in language models by selecting the most accurate response among multiple model-generated responses or refusing to respond if none is correct.
 ## Installation
 In this the root folder of this repo, run the following commands to set things up.
 ```
