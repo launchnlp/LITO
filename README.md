@@ -27,11 +27,19 @@ For each of the datasets, collect their corresponding ITI features for probe tra
 ```
 python collect_iti_activations.py llama2_chat_7B --dataset_name nq
 ```
-This will provide the activations for each dataset and each model in order to find directions uisng the iti method. 
+This will provide the activations for each dataset and each model in order to find directions using the ITI method. 
 
 
 ## Collect Hidden States for training and evaluating LITO
-For each model, each dataset, each mode (train/test), and each of the 5 different intensity values (alpha), the following script needs to be ran:
+First, we must build the classification datasets for training LITO as described in Section 4 of the paper. This can be done by running the following command ONCE for each dataset: 
+
+```
+python collect_hidden_states.py [mode_name does not matter] --dataset_name trivia_qa --create_training_data
+```
+Please note that you should run the above command only once for each dataset and should not use the `--create_training_data` for the hidden state collection described below.
+
+
+For each model, each dataset, each mode (train/test), and each of the 5 different intensity values (alpha), the following script needs to be run to collect hidden states for training and evaluating LITO:
 
 ```
 python collect_hidden_states.py gpt2_xl --dataset_name trivia_qa --alpha 15 --mode train
