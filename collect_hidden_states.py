@@ -47,6 +47,7 @@ parser.add_argument('--seed', type=int, default=42, help='seed')
 parser.add_argument('--num_samples', type=int, default=3000, help='number of samples for info collection')
 parser.add_argument('--no_intervention', type=bool, default=False)
 parser.add_argument('--mode', type=str, default='train', choices=['train', 'test'])
+parser.add_argument('--create_training_data', type=bool, default=False)
 args = parser.parse_args()
 
 torch.cuda.empty_cache()
@@ -190,10 +191,12 @@ def build_dataset_for_classififcation(base_dir, dataset_length):
 
 if __name__ == "__main__":
     dir_path = "datasets_results"
-    # create dataset - run once
-    # build_dataset_for_classififcation(dir_path, args.num_samples)
     
-    # # create model
+    # create dataset - run once
+    if args.create_training_data:
+        build_dataset_for_classififcation(dir_path, args.num_samples)
+    
+    ## create model
     model_name = HF_NAMES[args.model_name]  
     if args.model_name in ['vicuna_7B', 'llama2_chat_7B', 'llama2_chat_13B']:
         print(f"loading {args.model_name}...")
