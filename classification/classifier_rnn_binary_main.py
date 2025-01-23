@@ -308,6 +308,8 @@ if __name__ == "__main__":
 
     # load labels:
     batch_size = 32
+
+    # classification_train_data.csv is the same classification_dataset.csv from dataset creation renamed.
     labels_path = f'{data_dir}/train/files/classification_train_data.csv'
     labels = load_labels(labels_path, args.k)
     
